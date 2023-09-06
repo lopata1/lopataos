@@ -176,20 +176,20 @@ handle_command:
     push esi
     call streq
     or al, al
-    jz .elseif_cmd_man
+    jz .elseif_ref_man
     call wmem_command
 
     jmp .endif
 
-.elseif_cmd_man:
+.elseif_ref_man:
     lea esi, prompt_args
     push esi
-    lea esi, cmd_man_str
+    lea esi, cmd_ref_str
     push esi
     call streq
     or al, al
     jz .elseif_cmd_rmema
-    call man_command
+    call ref_command
 
     jmp .endif
 
