@@ -52,7 +52,16 @@ idt:
     db 10001110b
     dw 0x0001
 
-    times 0xFF dq 0
+    times 0x51 dq 0
+    ; syscalls
+
+    dw prints_isr
+    dw 0x8
+    db 0
+    db 10001111b
+    dw 0x0001
+
+    times 0x20 dq 0
 
 idtr:
     dw idtr - idt - 1
@@ -111,5 +120,22 @@ ata_isr:
 
     mov al, 0x20
     out 0x20, al
+    popa
+    iret
+
+
+prints_isr:
+    pusha
+
+    push ebp
+    mov ebp, esp
+
+    push ebx
+    push eax
+    call prints
+
+    mov esp, ebp
+    pop ebp
+
     popa
     iret

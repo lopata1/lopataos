@@ -2,8 +2,11 @@ run_command:
   push ebp
   mov ebp, esp
 
-  push 0
+  push 1
   call get_argument
+
+  push eax
+  call hex_to_num_value
 
   call eax
 
