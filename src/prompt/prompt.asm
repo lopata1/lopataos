@@ -188,8 +188,19 @@ handle_command:
     push esi
     call streq
     or al, al
-    jz .elseif_cmd_rmema
+    jz .elseif_cmd_run
     call ref_command
+
+    jmp .endif
+.elseif_cmd_run:
+    lea esi, prompt_args
+    push esi
+    lea esi, cmd_run_str
+    push esi
+    call streq
+    or al, al
+    jz .elseif_cmd_rmema
+    call run_command
 
     jmp .endif
 

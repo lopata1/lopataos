@@ -14,6 +14,7 @@ cmd_rmem_str db "RMEM", 0
 cmd_wmem_str db "WMEM", 0
 cmd_rmema_str db "RMEMA", 0
 cmd_ref_str db "REF", 0
+cmd_run_str db "RUN", 0
 
 pomoc_str db "Pomoc komanda", 0x0d, 0x0a, 0x0a
 db "POMOC - ova komanda", 0x0d, 0x0a 
@@ -59,7 +60,7 @@ works_str db "works...", 0x0d, 0x0a, 0
 
 
 ref_insset1_str:
-db "DD (Eb Gb) = 00         ADC (Eb Gb) = 10        AND (Eb Gb) = 20", 0x0d, 0x0a
+db "ADD (Eb Gb) = 00        ADC (Eb Gb) = 10        AND (Eb Gb) = 20", 0x0d, 0x0a
 db "ADD (Ev Gv) = 01        ADC (Ev Gv) = 11        AND (Ev Gv) = 21", 0x0d, 0x0a
 db "ADD (Gb Eb) = 02        ADC (Gb Eb) = 12        AND (Gb Eb) = 22", 0x0d, 0x0a
 db "ADD (Gv Ev) = 03        ADC (Gv Ev) = 13        AND (Gv Ev) = 23", 0x0d, 0x0a

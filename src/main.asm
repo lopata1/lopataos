@@ -29,6 +29,7 @@ main:
 %include "src/prompt/cmds/rmema.asm"
 %include "src/prompt/cmds/wmem.asm"
 %include "src/prompt/cmds/ref.asm"
+%include "src/prompt/cmds/run.asm"
 
 %include "src/data/interrupt.asm"
 %include "src/data/globals.asm"
