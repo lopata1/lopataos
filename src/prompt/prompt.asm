@@ -199,8 +199,42 @@ handle_command:
     push esi
     call streq
     or al, al
-    jz .elseif_cmd_rmema
+    jz .elseif_cmd_bin2hex
     call run_command
+
+    jmp .endif
+
+.elseif_cmd_bin2hex:
+    lea esi, prompt_args
+    push esi
+    lea esi, cmd_bin2hex_str
+    push esi
+    call streq
+    or al, al
+    jz .elseif_cmd_hex2bin
+    call bin2hex_command
+
+    jmp .endif
+.elseif_cmd_hex2bin:
+    lea esi, prompt_args
+    push esi
+    lea esi, cmd_hex2bin_str
+    push esi
+    call streq
+    or al, al
+    jz .elseif_cmd_wmema
+    call hex2bin_command
+
+    jmp .endif
+.elseif_cmd_wmema:
+    lea esi, prompt_args
+    push esi
+    lea esi, cmd_wmema_str
+    push esi
+    call streq
+    or al, al
+    jz .elseif_cmd_rmema
+    call wmema_command
 
     jmp .endif
 

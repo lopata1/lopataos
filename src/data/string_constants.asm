@@ -12,9 +12,12 @@ cmd_info_str db "INFO", 0
 cmd_pomoc_str db "POMOC", 0
 cmd_rmem_str db "RMEM", 0
 cmd_wmem_str db "WMEM", 0
+cmd_wmema_str db "WMEMA", 0
 cmd_rmema_str db "RMEMA", 0
 cmd_ref_str db "REF", 0
 cmd_run_str db "RUN", 0
+cmd_bin2hex_str db "BIN2HEX", 0
+cmd_hex2bin_str db "HEX2BIN", 0
 
 pomoc_str db "Pomoc komanda", 0x0d, 0x0a, 0x0a
 db "POMOC - ova komanda", 0x0d, 0x0a 
@@ -24,8 +27,10 @@ db "RMEM [LOKACIJA] [KOLICINA] - cita radnu memoriju", 0x0d, 0x0a
 db "RMEMA [LOKACIJA] [KOLICINA] - cita radnu memoriju u ASCII formatu", 0x0d, 0x0a
 db "WMEM [LOKACIJA] [PODACI...] - pise u radnu memoriju date podatke", 0x0d, 0x0a, 0
 
+rmem_address_numbers db "00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F", 0x0d, 0x0a, 0
 
-about_str db "Verzija v0.02 DEV", 0x0d, 0x0a, 0x0a, "Napravio lopata", 0x0d, 0x0a, 0
+
+about_str db "Verzija v0.03 DEV", 0x0d, 0x0a, 0x0a, "Napravio lopata", 0x0d, 0x0a, 0
 ref_arg_not_found_str db "Referenca ne postoji.", 0x0d, 0x0a, 0
 ref_arg_ins_str db "INS", 0
 ref_arg_insset1_str db "INSSET1", 0

@@ -62,3 +62,34 @@ hex_to_num_value:
     mov esp, ebp
     pop ebp
     ret
+
+; function hex_to_bin
+; param1 = hex number
+bin_to_num_value:
+    push ebp
+    mov ebp, esp
+
+    mov esi, [ebp+8]
+
+    mov ecx, 7
+    xor eax, eax
+
+.loop:
+    mov dl, [esi]
+    cmp dl, '1'
+    jne .endif
+    or eax, 1
+.endif:
+    shl eax, 1
+    inc esi
+    loop .loop
+
+    mov dl, [esi]
+    cmp dl, '1'
+    jne .endif2
+    or eax, 1
+.endif2:
+
+    mov esp, ebp
+    pop ebp
+    ret

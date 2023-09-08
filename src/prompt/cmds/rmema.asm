@@ -52,14 +52,14 @@ rmema_command:
     or al, al
     jnz .endif_null
 
-    push 0x0E
+    push 0x0F
     push '.'
     call printc
 
     jmp .endelse
 .endif_null:
 
-    push 0x0E
+    push 0x0F
     push eax
     call printc
 

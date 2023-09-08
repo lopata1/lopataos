@@ -6,6 +6,12 @@ rmem_command:
     ; [ebp-8] = number of times
     ; [ebp-12] = i
 
+
+    lea esi, rmem_address_numbers
+    push 0x0E
+    push esi
+    call prints
+
     push 1
     call get_argument
     push eax
@@ -49,7 +55,7 @@ rmem_command:
     mov ebx, [ebp-12]
     mov eax, [esi+ebx]
 
-    push 0x0E
+    push 0x0F
     push eax
     call printh
 

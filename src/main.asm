@@ -3,7 +3,7 @@
 main:
     call enable_interrupts
 
-    push 5000
+    push 1000
     call sleep
 
     call print_start_screen
@@ -28,8 +28,11 @@ main:
 %include "src/prompt/cmds/rmem.asm"
 %include "src/prompt/cmds/rmema.asm"
 %include "src/prompt/cmds/wmem.asm"
+%include "src/prompt/cmds/wmema.asm"
 %include "src/prompt/cmds/ref.asm"
 %include "src/prompt/cmds/run.asm"
+%include "src/prompt/cmds/bin2hex.asm"
+%include "src/prompt/cmds/hex2bin.asm"
 
 %include "src/data/interrupt.asm"
 %include "src/data/globals.asm"
