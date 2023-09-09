@@ -82,6 +82,10 @@ system_timer_isr:
 
 keyboard_isr:
     pusha
+
+    push ebp
+    mov ebp, esp
+
     xor eax, eax
 
     in al, 0x60 
@@ -108,8 +112,9 @@ keyboard_isr:
     jne .endif_f1
     mov byte [screen_mode], 0
     or bl, bl
-    jz .endif_f1
-    call switch_screens
+    jz .endif_screen1_f1
+    mov byte [switch_screens_flag], 1
+.endif_screen1_f1:
     jmp .end
 .endif_f1:
 
@@ -117,21 +122,18 @@ keyboard_isr:
     jne .endif_f2
     mov byte [screen_mode], 1
     or bl, bl
-    jnz .endif_f1
-    call switch_screens
+    jnz .endif_screen1_f2
+    mov byte [switch_screens_flag], 1
+.endif_screen1_f2:
     jmp .end
 .endif_f2:
 
     or bl, bl
     jz .endif_screen1
-    push ebp
-    mov ebp, esp
 
     push eax
     call handle_screen1_input
 
-    mov esp, ebp
-    pop ebp
     jmp .end
 .endif_screen1:
 
@@ -144,6 +146,10 @@ keyboard_isr:
 .end:
     mov al, 0x20
     out 0x20, al
+
+    mov esp, ebp
+    pop ebp
+
     popa
     iret
 

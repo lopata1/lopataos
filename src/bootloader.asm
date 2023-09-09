@@ -15,7 +15,6 @@ int 0x13
 
 mov ah, 0x01
 int 0x13
-;jc disk_status
 
 xor ah, ah
 mov al, 0x03
@@ -28,7 +27,7 @@ or al, 2
 out 0x92, al
 
 mov ax, 0
-mov ds, ax ; lukflug suggested this i think
+mov ds, ax
 
 lgdt [gdtr]
 mov eax, cr0
@@ -36,7 +35,7 @@ or al, 1
 mov cr0, eax
 
 
-jmp 8h:protected_mode ; this works now
+jmp 8h:protected_mode
 
 protected_mode:
     [bits 32]
@@ -48,7 +47,7 @@ protected_mode:
     mov ss,ax
     mov esp, 0x105000
 
-    jmp 0x10000 ; crashes here
+    jmp 0x10000
 
 gdt:
     ;null descriptor

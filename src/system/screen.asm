@@ -2,19 +2,21 @@ switch_screens:
     push ebp
     mov ebp, esp
 
+    xor eax, eax
     xor ecx, ecx
 
-    mov esi, 0xB8000
+    mov esi, [video_mem]
     lea edi, saved_screen_buffer
 
 .loop:
-    mov ax, [esi+ecx]
-    mov bx, [edi+ecx]
-    mov [edi+ecx], ax
-    mov [esi+ecx], bx
+    mov ax, [2*ecx+esi] ;this
+    mov bx, [2*ecx+edi]
+    mov [2*ecx+edi], ax
+    mov [2*ecx+esi], bx
 
-    add ecx, 2
-    cmp ecx, 80*25*2
+    inc ecx
+    ;cmp ecx, 80*25
+    cmp ecx, 80*25
     jl .loop
 
     call get_cursor_pos
@@ -28,8 +30,6 @@ switch_screens:
 
     push ebx
     call set_cursor_pos
-    
-
 
     mov esp, ebp
     pop ebp
