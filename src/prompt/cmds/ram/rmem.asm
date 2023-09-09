@@ -15,14 +15,14 @@ rmem_command:
     push 1
     call get_argument
     push eax
-    call hex_to_num_value
+    call decode_hex
 
     mov dword [ebp-4], eax
 
     push 2
     call get_argument
     push eax
-    call hex_to_num_value
+    call decode_hex
 
     mov dword [ebp-8], eax
 

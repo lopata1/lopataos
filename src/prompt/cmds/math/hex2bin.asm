@@ -9,7 +9,7 @@ hex2bin_command:
     call get_argument
 
     push eax
-    call hex_to_num_value
+    call decode_hex
 
     mov [ebp-4], eax
     mov ecx, 8

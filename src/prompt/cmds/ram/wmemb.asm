@@ -25,7 +25,7 @@ wmem_command:
     jz .endloop
 
     push eax
-    call decode_hex
+    call decode_binary
 
     mov esi, [ebp-4]
     mov ecx, [ebp-8]

@@ -6,7 +6,7 @@ bin2hex_command:
     call get_argument
 
     push eax
-    call bin_to_num_value
+    call decode_binary
 
     push 0x0F
     push eax

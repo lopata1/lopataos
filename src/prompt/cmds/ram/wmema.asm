@@ -11,7 +11,7 @@ wmema_command:
     push 1
     call get_argument
     push eax
-    call hex_to_num_value
+    call decode_hex
 
     mov dword [ebp-4], eax
     mov dword [ebp-8], 0

@@ -6,7 +6,7 @@ run_command:
   call get_argument
 
   push eax
-  call hex_to_num_value
+  call decode_hex
 
   call eax
 

@@ -1,4 +1,4 @@
-hex_to_num_value:
+decode_hex:
     push ebp
     mov ebp, esp
     sub esp, 16
@@ -65,7 +65,7 @@ hex_to_num_value:
 
 ; function hex_to_bin
 ; param1 = hex number
-bin_to_num_value:
+decode_binary:
     push ebp
     mov ebp, esp
 
