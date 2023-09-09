@@ -16,3 +16,5 @@ saved_screen_buffer times 80*25 dw 0x0F00
 saved_cursor_pos dw 0
 screen_mode db 0
 switch_screens_flag db 0
+
+last_buffer times 1024 db 0

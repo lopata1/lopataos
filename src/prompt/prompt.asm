@@ -41,6 +41,30 @@ prompt_loop:
     call getc
     mov [ebp-8], al
 
+    cmp al, 0x82 ; pageup
+    jne .elseif_backspace
+    xor ecx, ecx
+.copy_last_buffer_loop:
+    mov al, [last_buffer+ecx]
+    mov byte [buffer], al
+
+    push ecx
+
+    or al, al
+    jz .endif_buffer_not_zero
+    push 0x0F
+    push al
+    call printc
+.endif_buffer_not_zero:
+
+    pop ecx
+
+    inc ecx
+    cmp ecx, buffer_size
+    jl .copy_last_buffer_loop
+
+    jmp .loop_main
+.elseif_backspace
 
     mov al, [ebp-8]
     cmp al, 0x08 ; backspace
@@ -83,6 +107,15 @@ prompt_loop:
     push 0
     push eax
     call prints
+
+    xor ecx, ecx
+.copy_buffer_loop:
+    mov al, [buffer+ecx]
+    mov byte [last_buffer], al
+    inc ecx
+    cmp ecx, buffer_size
+    jl .copy_buffer_loop
+    
 
     mov eax, [ebp-12]
     mov edi, [ebp-4]
