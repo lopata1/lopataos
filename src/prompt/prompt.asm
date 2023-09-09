@@ -46,7 +46,7 @@ prompt_loop:
     xor ecx, ecx
 .copy_last_buffer_loop:
     mov al, [last_buffer+ecx]
-    mov byte [buffer], al
+    mov byte [buffer+ecx], al
 
     push ecx
 
@@ -111,7 +111,7 @@ prompt_loop:
     xor ecx, ecx
 .copy_buffer_loop:
     mov al, [buffer+ecx]
-    mov byte [last_buffer], al
+    mov byte [last_buffer+ecx], al
     inc ecx
     cmp ecx, buffer_size
     jl .copy_buffer_loop
