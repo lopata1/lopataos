@@ -53,7 +53,7 @@ prompt_loop:
     or al, al
     jz .endif_buffer_not_zero
     push 0x0F
-    push al
+    push eax
     call printc
 .endif_buffer_not_zero:
 
@@ -64,7 +64,7 @@ prompt_loop:
     jl .copy_last_buffer_loop
 
     jmp .loop_main
-.elseif_backspace
+.elseif_backspace:
 
     mov al, [ebp-8]
     cmp al, 0x08 ; backspace
