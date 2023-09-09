@@ -31,7 +31,7 @@ db "WMEM [LOKACIJA] [PODACI...] - pise u radnu memoriju date podatke", 0x0d, 0x0
 rmem_address_numbers_str db "00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F", 0x0d, 0x0a, 0
 
 
-about_str db "Verzija v0.03 DEV", 0x0d, 0x0a, 0x0a, "Napravio lopata", 0x0d, 0x0a, 0
+about_str db "Verzija v0.04 DEV", 0x0d, 0x0a, 0x0a, "Napravio lopata", 0x0d, 0x0a, 0
 ref_arg_not_found_str db "Referenca ne postoji.", 0x0d, 0x0a, 0
 ref_arg_ins_str db "INS", 0
 ref_arg_insset1_str db "INSSET1", 0
