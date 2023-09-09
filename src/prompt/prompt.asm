@@ -6,12 +6,12 @@ print_start_screen:
     call clear_screen
 
     lea esi, title_str
-    push 0x04
+    push 0x01
     push esi
     call prints
 
     lea esi, welcome_str
-    push 11001111b
+    push 10011111b
     push esi
     call prints
 

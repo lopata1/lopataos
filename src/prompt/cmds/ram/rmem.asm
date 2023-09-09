@@ -8,7 +8,7 @@ rmem_command:
 
 
     lea esi, rmem_address_numbers_str
-    push 0x0E
+    push 0x09
     push esi
     call prints
 
