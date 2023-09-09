@@ -1,4 +1,4 @@
-wmem_command:
+wmemb_command:
     push ebp
     mov ebp, esp
     sub esp, 8

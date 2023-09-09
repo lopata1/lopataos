@@ -29,6 +29,7 @@ main:
 %include "src/prompt/cmds/ram/rmema.asm"
 %include "src/prompt/cmds/ram/wmem.asm"
 %include "src/prompt/cmds/ram/wmema.asm"
+%include "src/prompt/cmds/ram/wmemb.asm"
 %include "src/prompt/cmds/general/ref.asm"
 %include "src/prompt/cmds/general/run.asm"
 %include "src/prompt/cmds/math/bin2hex.asm"

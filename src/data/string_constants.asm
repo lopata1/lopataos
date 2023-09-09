@@ -13,6 +13,7 @@ cmd_pomoc_str db "POMOC", 0
 cmd_rmem_str db "RMEM", 0
 cmd_wmem_str db "WMEM", 0
 cmd_wmema_str db "WMEMA", 0
+cmd_wmemb_str db "WMEMB", 0
 cmd_rmema_str db "RMEMA", 0
 cmd_ref_str db "REF", 0
 cmd_run_str db "RUN", 0
@@ -27,7 +28,7 @@ db "RMEM [LOKACIJA] [KOLICINA] - cita radnu memoriju", 0x0d, 0x0a
 db "RMEMA [LOKACIJA] [KOLICINA] - cita radnu memoriju u ASCII formatu", 0x0d, 0x0a
 db "WMEM [LOKACIJA] [PODACI...] - pise u radnu memoriju date podatke", 0x0d, 0x0a, 0
 
-rmem_address_numbers db "00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F", 0x0d, 0x0a, 0
+rmem_address_numbers_str db "00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F", 0x0d, 0x0a, 0
 
 
 about_str db "Verzija v0.03 DEV", 0x0d, 0x0a, 0x0a, "Napravio lopata", 0x0d, 0x0a, 0

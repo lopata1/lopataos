@@ -233,8 +233,19 @@ handle_command:
     push esi
     call streq
     or al, al
-    jz .elseif_cmd_rmema
+    jz .elseif_cmd_wmemb
     call wmema_command
+
+    jmp .endif
+.elseif_cmd_wmemb:
+    lea esi, prompt_args
+    push esi
+    lea esi, cmd_wmemb_str
+    push esi
+    call streq
+    or al, al
+    jz .elseif_cmd_rmema
+    call wmemb_command
 
     jmp .endif
 

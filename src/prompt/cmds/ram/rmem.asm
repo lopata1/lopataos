@@ -7,7 +7,7 @@ rmem_command:
     ; [ebp-12] = i
 
 
-    lea esi, rmem_address_numbers
+    lea esi, rmem_address_numbers_str
     push 0x0E
     push esi
     call prints
