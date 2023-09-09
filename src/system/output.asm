@@ -117,10 +117,12 @@ printc:
     
     mov edi, [video_mem]
 
-    mov ecx, ebx
-    add ecx, ecx
+    ;mov ecx, ebx
+    ;add ecx, ecx
 
-    mov [edi+ecx], ax
+    ;mov [edi+ecx], ax
+
+    mov [2*ebx+edi], ax
 
     inc ebx
     push ebx

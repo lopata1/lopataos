@@ -102,6 +102,39 @@ keyboard_isr:
     or al, al
     jz .end
 
+    mov bl, [screen_mode]
+
+    cmp al, 0x80
+    jne .endif_f1
+    mov byte [screen_mode], 0
+    or bl, bl
+    jz .endif_f1
+    call switch_screens
+    jmp .end
+.endif_f1:
+
+    cmp al, 0x81
+    jne .endif_f2
+    mov byte [screen_mode], 1
+    or bl, bl
+    jnz .endif_f1
+    call switch_screens
+    jmp .end
+.endif_f2:
+
+    or bl, bl
+    jz .endif_screen1
+    push ebp
+    mov ebp, esp
+
+    push eax
+    call handle_screen1_input
+
+    mov esp, ebp
+    pop ebp
+    jmp .end
+.endif_screen1:
+
     mov byte [character_from_input], al
     mov byte [changed_input], 1
 

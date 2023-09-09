@@ -11,3 +11,7 @@ arg_size equ 20
 buffer_size equ 1024
 
 disk_buffer times 512 db 0
+
+saved_screen_buffer times 80*25*2 db 0, 0x0F
+saved_cursor_pos dw 0
+screen_mode db 0

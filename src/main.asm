@@ -16,6 +16,7 @@ main:
 %include "src/system/interrupts.asm"
 %include "src/system/input.asm"
 %include "src/system/output.asm"
+%include "src/system/screen.asm"
 %include "src/structure/string.asm"
 
 %include "src/math/convertion.asm"
