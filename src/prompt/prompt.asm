@@ -43,21 +43,35 @@ prompt_loop:
 
     cmp al, 0x82 ; pageup
     jne .elseif_backspace
+
+    call get_cursor_pos
+
+    mov eax, [cursor_pos]
+    mov ebx, [ebp-12]
+    sub eax, ebx
+
+    push eax
+    call set_cursor_pos
+
     xor ecx, ecx
 .copy_last_buffer_loop:
     mov al, [last_buffer+ecx]
     mov byte [buffer+ecx], al
 
-    push ecx
+    mov [ebp-12], ecx
 
     or al, al
-    jz .endif_buffer_not_zero
+    jz .else_buffer_not_zero
     push 0x0F
     push eax
     call printc
-.endif_buffer_not_zero:
+    jmp .endif_buffer_not_zero
+.else_buffer_not_zero:
+    mov [ebp-12], ecx
+    jmp .loop_main
+.endif_buffer_not_zero
 
-    pop ecx
+    mov ecx, [ebp-12]
 
     inc ecx
     cmp ecx, buffer_size
@@ -108,6 +122,11 @@ prompt_loop:
     push eax
     call prints
 
+    mov eax, [ebp-12]
+    mov edi, [ebp-4]
+    mov byte [edi+eax], 0
+
+
     xor ecx, ecx
 .copy_buffer_loop:
     mov al, [buffer+ecx]
@@ -115,11 +134,8 @@ prompt_loop:
     inc ecx
     cmp ecx, buffer_size
     jl .copy_buffer_loop
-    
 
-    mov eax, [ebp-12]
-    mov edi, [ebp-4]
-    mov byte [edi+eax], 0
+    
 
     call handle_command
 
