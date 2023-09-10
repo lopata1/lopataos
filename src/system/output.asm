@@ -243,16 +243,12 @@ clear_screen:
     mov ebp, esp
 
 
-    mov bh, [ebp+8]
-    xor bl, bl
+    mov ah, [ebp+8]
+    xor al, al
     mov edi, [video_mem]
 
-    mov ecx, 0
-.loop:
-    mov [edi+ecx], bx
-    add ecx, 2
-    cmp ecx, 80*25*2
-    jl .loop
+    mov ecx, 80*25*2
+    rep stosb
 
     push 0
     call set_cursor_pos
