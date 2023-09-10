@@ -40,7 +40,7 @@ rmem_command:
     mov ebx, 16
     div ebx
 
-    or edx, edx
+    test edx, edx
     jnz .endif
     ;mov ebx, [ebp-12]
     ;or ebx, ebx

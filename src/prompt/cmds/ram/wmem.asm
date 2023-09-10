@@ -21,7 +21,7 @@ wmem_command:
     call get_argument
 
     mov dl, byte [eax]
-    or dl, dl
+    test dl, dl
     jz .endloop
 
     push eax

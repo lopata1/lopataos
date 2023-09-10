@@ -34,7 +34,7 @@ rmema_command:
     mov ebx, 64
     div ebx
 
-    or edx, edx
+    test edx, edx
     jnz .endif
     ;mov ebx, [ebp-12]
     ;or ebx, ebx
@@ -49,7 +49,7 @@ rmema_command:
     mov ebx, [ebp-12]
     mov eax, [esi+ebx]
 
-    or al, al
+    test al, al
     jnz .endif_null
 
     push 0x0F

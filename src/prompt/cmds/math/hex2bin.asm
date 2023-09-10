@@ -17,7 +17,7 @@ hex2bin_command:
 .loop:
     mov [ebp-8], ecx
     and eax, 10000000b
-    or eax, eax
+    test eax, eax
     jz .else
     push 0x0F
     push '1'
