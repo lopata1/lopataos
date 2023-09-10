@@ -25,14 +25,14 @@ wmema_command:
     call get_argument
 
     mov dl, byte [eax]
-    or dl, dl
+    test dl, dl
     jz .endloop
 
     mov [ebp-20], eax
 
 
     mov eax, [ebp-16]
-    or eax, eax
+    test eax, eax
     jz .endif
     mov esi, [ebp-4]
     mov ecx, [ebp-16]
@@ -49,7 +49,7 @@ wmema_command:
     mov ecx, [ebp-12]
     mov eax, [ebp-20]
     mov eax, [eax+ecx]
-    or eax, eax
+    test eax, eax
     jz .endcharloop
 
     mov esi, [ebp-4]

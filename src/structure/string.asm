@@ -25,7 +25,7 @@ streq:
 
     inc ecx
 
-    or al, al
+    test al, al
     jnz .loop
 
     mov eax, 1
@@ -43,7 +43,7 @@ strlen:
 
 .loop:
     mov al, [esi+ecx]
-    or al, al
+    test al, al
     jz .endloop
 
     inc ecx

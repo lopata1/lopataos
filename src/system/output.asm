@@ -16,7 +16,7 @@ prints:
     ; while ((al = byte [esi]) != 0)
 .loop:
     mov al, byte [esi]
-    or al, al
+    test al, al
     jz .endloop
 
     ; new line

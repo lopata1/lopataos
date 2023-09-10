@@ -11,7 +11,7 @@ pomoc_command:
     push eax
     call decode_hex
 
-    or al, al
+    test al, al
     jnz .elseif_pomoc1
     lea esi, pomoc0_str
 

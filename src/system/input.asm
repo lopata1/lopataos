@@ -15,14 +15,14 @@ getc:
 .loop:
     hlt
     mov al, [switch_screens_flag]
-    or al, al
+    test al, al
     jz .endif
     mov byte [switch_screens_flag], 0
     call switch_screens
 .endif:
 
     mov al, [changed_input]
-    or al, al
+    test al, al
     jz .loop
 
     mov byte [changed_input], 0

@@ -93,7 +93,7 @@ keyboard_isr:
     mov bl, al
     
     shr bl, 7
-    or bl, bl
+    test bl, bl
     jnz .end
 
     cmp al, scancode_table_size
@@ -103,7 +103,7 @@ keyboard_isr:
 
     mov al, byte [esi+eax]
 
-    or al, al
+    test al, al
     jz .end
 
     mov bl, [screen_mode]
@@ -111,7 +111,7 @@ keyboard_isr:
     cmp al, 0x80
     jne .endif_f1
     mov byte [screen_mode], 0
-    or bl, bl
+    test bl, bl
     jz .endif_screen1_f1
     mov byte [switch_screens_flag], 1
 .endif_screen1_f1:
@@ -121,14 +121,14 @@ keyboard_isr:
     cmp al, 0x81
     jne .endif_f2
     mov byte [screen_mode], 1
-    or bl, bl
+    test bl, bl
     jnz .endif_screen1_f2
     mov byte [switch_screens_flag], 1
 .endif_screen1_f2:
     jmp .end
 .endif_f2:
 
-    or bl, bl
+    test bl, bl
     jz .endif_screen1
 
     push eax

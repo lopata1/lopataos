@@ -16,7 +16,7 @@ ref_command:
     lea esi, ref_arg_ins_str
     push esi
     call streq
-    or al, al
+    test al, al
     jz .elseif_insset1
     lea esi, ref_ins_str
 
@@ -31,7 +31,7 @@ ref_command:
     lea esi, ref_arg_insset1_str
     push esi
     call streq
-    or al, al
+    test al, al
     jz .elseif_insset2
     lea esi, ref_insset1_str
 
@@ -46,7 +46,7 @@ ref_command:
     lea esi, ref_arg_insset2_str
     push esi
     call streq
-    or al, al
+    test al, al
     jz .elseif_insset3
     lea esi, ref_insset2_str
 
@@ -61,7 +61,7 @@ ref_command:
     lea esi, ref_arg_insset3_str
     push esi
     call streq
-    or al, al
+    test al, al
     jz .elseif_insset4
     lea esi, ref_insset3_str
 
@@ -76,7 +76,7 @@ ref_command:
     lea esi, ref_arg_insset4_str
     push esi
     call streq
-    or al, al
+    test al, al
     jz .elseif_insset5
     lea esi, ref_insset4_str
 
@@ -91,7 +91,7 @@ ref_command:
     lea esi, ref_arg_insset5_str
     push esi
     call streq
-    or al, al
+    test al, al
     jz .elseif_insset6
     lea esi, ref_insset5_str
 
@@ -106,7 +106,7 @@ ref_command:
     lea esi, ref_arg_insset6_str
     push esi
     call streq
-    or al, al
+    test al, al
     jz .else
     lea esi, ref_insset6_str
 

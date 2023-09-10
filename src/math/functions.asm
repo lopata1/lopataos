@@ -8,7 +8,7 @@ pow:
 
     mov ecx, [ebp+12]
 
-    or ecx, ecx
+    test ecx, ecx
     jnz .endif
     mov eax, 1
     mov esp, ebp

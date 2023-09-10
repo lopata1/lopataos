@@ -24,7 +24,7 @@ decode_hex:
     mov eax, dword [ebp-16]
     mov dl, [esi+eax]
 
-    or dl, dl
+    test dl, dl
     jz .endloop
 
     sub dl, '0'
@@ -38,7 +38,7 @@ decode_hex:
     mov eax, ecx
     dec eax
 .shiftingloop:
-    or eax, eax
+    test eax, eax
     jz .shiftingloopend
     shl edx, 4
 

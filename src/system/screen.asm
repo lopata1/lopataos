@@ -57,20 +57,20 @@ handle_screen1_input:
     xor ecx, ecx
     mov cx, [cursor_pos]
 
-    or ecx, ecx
+    test ecx, ecx
     jz .end
 
     dec ecx
     mov esi, [video_mem]
     mov al, [2*ecx+esi]
-    or al, al
+    test al, al
     jnz .endif_zero
         
 .loop_while_zero:
     dec ecx
     mov esi, [video_mem]
     mov al, [2*ecx+esi]
-    or al, al
+    test al, al
     jz .loop_while_zero
 
     inc ecx

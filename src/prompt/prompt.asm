@@ -60,7 +60,7 @@ prompt_loop:
 
     mov [ebp-12], ecx
 
-    or al, al
+    test al, al
     jz .else_buffer_not_zero
     push 0x0F
     push eax
@@ -86,7 +86,7 @@ prompt_loop:
 
     mov ecx, [ebp-12]
 
-    or ecx, ecx
+    test ecx, ecx
     jz .loop_main
     
     dec ecx
@@ -189,7 +189,7 @@ handle_command:
     lea esi, cmd_info_str
     push esi
     call streq
-    or al, al
+    test al, al
     jz .elseif_cmd_pomoc
     call info_command
 
@@ -200,7 +200,7 @@ handle_command:
     lea esi, cmd_pomoc_str
     push esi
     call streq
-    or al, al
+    test al, al
     jz .elseif_cmd_rmem
     call pomoc_command
 
@@ -212,7 +212,7 @@ handle_command:
     lea esi, cmd_rmem_str
     push esi
     call streq
-    or al, al
+    test al, al
     jz .elseif_cmd_wmem
     call rmem_command
 
@@ -224,7 +224,7 @@ handle_command:
     lea esi, cmd_wmem_str
     push esi
     call streq
-    or al, al
+    test al, al
     jz .elseif_ref_man
     call wmem_command
 
@@ -236,7 +236,7 @@ handle_command:
     lea esi, cmd_ref_str
     push esi
     call streq
-    or al, al
+    test al, al
     jz .elseif_cmd_run
     call ref_command
 
@@ -247,7 +247,7 @@ handle_command:
     lea esi, cmd_run_str
     push esi
     call streq
-    or al, al
+    test al, al
     jz .elseif_cmd_bin2hex
     call run_command
 
@@ -259,7 +259,7 @@ handle_command:
     lea esi, cmd_bin2hex_str
     push esi
     call streq
-    or al, al
+    test al, al
     jz .elseif_cmd_hex2bin
     call bin2hex_command
 
@@ -270,7 +270,7 @@ handle_command:
     lea esi, cmd_hex2bin_str
     push esi
     call streq
-    or al, al
+    test al, al
     jz .elseif_cmd_wmema
     call hex2bin_command
 
@@ -281,7 +281,7 @@ handle_command:
     lea esi, cmd_wmema_str
     push esi
     call streq
-    or al, al
+    test al, al
     jz .elseif_cmd_wmemb
     call wmema_command
 
@@ -292,7 +292,7 @@ handle_command:
     lea esi, cmd_wmemb_str
     push esi
     call streq
-    or al, al
+    test al, al
     jz .elseif_cmd_shmemup
     call wmemb_command
 
@@ -303,7 +303,7 @@ handle_command:
     lea esi, cmd_shmemup_str
     push esi
     call streq
-    or al, al
+    test al, al
     jz .elseif_cmd_shmemdown
     call shmemup_command
 
@@ -314,7 +314,7 @@ handle_command:
     lea esi, cmd_shmemdown_str
     push esi
     call streq
-    or al, al
+    test al, al
     jz .elseif_cmd_rmema
     call shmemdown_command
 
@@ -326,7 +326,7 @@ handle_command:
     lea esi, cmd_rmema_str
     push esi
     call streq
-    or al, al
+    test al, al
     jz .else
     call rmema_command
 
@@ -370,7 +370,7 @@ parse_command:
     inc ecx
     jmp .loop
 .elseif_null:
-    or dl, dl
+    test dl, dl
     jnz .else
     
     lea edi, prompt_args
