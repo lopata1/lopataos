@@ -247,8 +247,8 @@ clear_screen:
     xor al, al
     mov edi, [video_mem]
 
-    mov ecx, 80*25*2
-    rep stosb
+    mov ecx, 80*25
+    rep stosw
 
     push 0
     call set_cursor_pos

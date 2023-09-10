@@ -33,6 +33,7 @@ streq:
     pop ebp
     ret
 
+
 strlen:
     push ebp
     mov ebp, esp
