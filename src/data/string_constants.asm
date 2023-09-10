@@ -23,13 +23,22 @@ cmd_hex2bin_str db "HEX2BIN", 0
 cmd_shmemup_str db "SHMEMUP", 0
 cmd_shmemdown_str db "SHMEMDOWN", 0
 
-pomoc_str db "Pomoc komanda", 0x0d, 0x0a, 0x0a
-db "POMOC - ova komanda", 0x0d, 0x0a 
+pomoc0_str db "Pomoc komanda", 0x0d, 0x0a, 0x0a
+db "POMOC [BROJ] - ova komanda", 0x0d, 0x0a 
 db "INFO - informacije o operativnom sistemu", 0x0d, 0x0a
-db "REF [IME] - pregled referenci: INS, INSSET1", 0x0d, 0x0a
+db "REF [IME] - pregled referenci: INS, INSSET(1-6)", 0x0d, 0x0a
 db "RMEM [LOKACIJA] [KOLICINA] - cita radnu memoriju", 0x0d, 0x0a
 db "RMEMA [LOKACIJA] [KOLICINA] - cita radnu memoriju u ASCII formatu", 0x0d, 0x0a
-db "WMEM [LOKACIJA] [PODACI...] - pise u radnu memoriju date podatke", 0x0d, 0x0a, 0
+db "WMEM [LOKACIJA] [PODACI...] - pise u radnu memoriju date podatke", 0x0d, 0x0a,
+db "WMEMA [LOKACIJA] [PODACI...] - pise u radnu memoriju date ASCII podatke", 0x0d, 0x0a
+db "WMEMB [LOKACIJA] [PODACI...] - pise u radnu memoriju date binarne podatke", 0x0d, 0x0a
+db "SHMEMDOWN [LOKACIJA] [VELICINA] [KOLICINA] - pomjera podatke u radnoj memoriji na dole", 0x0d, 0x0a
+db "SHMEMUP [LOKACIJA] [VELICINA] [KOLICINA] - pomjera podatke u radnoj memoriji na gore", 0x0d, 0x0a
+db "RUN [LOKACIJA] - pokrece program ucitan u radnoj memoriji", 0x0d, 0x0a
+db "BIN2HEX [BROJ] - pretvara binarni broj u heksadecimalni broj", 0x0d, 0x0a
+db "HEX2BIN [BROJ] - pretvara heksadecimalni broj u binarni broj", 0x0d, 0x0a, 0
+pomoc1_str db "Rezervisano", 0
+pomoc_not_found_str db "Pomoc nije pronadjena.", 0x0d, 0x0a, 0
 
 rmem_address_numbers_str db "00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F", 0x0d, 0x0a, 0
 
