@@ -5,6 +5,7 @@ text_after_command_str db 0x0d, 0x0a, 0x0a, "Pritisni enter da bi ponovo kucao k
 nl_cr_str db 0x0d, 0x0a, 0
 unknown_command_str db "Nepoznata komanda", 0xd, 0xa, 0
 wmem_success_str db "Podaci uspjesno upisani u adresu.", 0x0d, 0x0a, 0
+shmem_success_str db "Podaci uspjesno pomjereni.", 0x0d, 0x0a, 0
 
 ; COMMANDS
 
@@ -19,6 +20,8 @@ cmd_ref_str db "REF", 0
 cmd_run_str db "RUN", 0
 cmd_bin2hex_str db "BIN2HEX", 0
 cmd_hex2bin_str db "HEX2BIN", 0
+cmd_shmemup_str db "SHMEMUP", 0
+cmd_shmemdown_str db "SHMEMDOWN", 0
 
 pomoc_str db "Pomoc komanda", 0x0d, 0x0a, 0x0a
 db "POMOC - ova komanda", 0x0d, 0x0a 
@@ -31,7 +34,7 @@ db "WMEM [LOKACIJA] [PODACI...] - pise u radnu memoriju date podatke", 0x0d, 0x0
 rmem_address_numbers_str db "00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F", 0x0d, 0x0a, 0
 
 
-about_str db "Verzija 0.07 DEV", 0x0d, 0x0a, 0x0a, "Napravio lopata", 0x0d, 0x0a, 0
+about_str db "Verzija 0.08 DEV", 0x0d, 0x0a, 0x0a, "Napravio lopata", 0x0d, 0x0a, 0
 ref_arg_not_found_str db "Referenca ne postoji.", 0x0d, 0x0a, 0
 ref_arg_ins_str db "INS", 0
 ref_arg_insset1_str db "INSSET1", 0

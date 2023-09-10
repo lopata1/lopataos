@@ -35,6 +35,9 @@ main:
 %include "src/prompt/cmds/general/run.asm"
 %include "src/prompt/cmds/math/bin2hex.asm"
 %include "src/prompt/cmds/math/hex2bin.asm"
+%include "src/prompt/cmds/ram/shmemup.asm"
+%include "src/prompt/cmds/ram/shmemdown.asm"
+
 
 %include "src/data/interrupt.asm"
 %include "src/data/globals.asm"

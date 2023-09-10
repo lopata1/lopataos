@@ -69,7 +69,7 @@ prompt_loop:
 .else_buffer_not_zero:
     mov [ebp-12], ecx
     jmp .loop_main
-.endif_buffer_not_zero
+.endif_buffer_not_zero:
 
     mov ecx, [ebp-12]
 
@@ -293,8 +293,30 @@ handle_command:
     push esi
     call streq
     or al, al
-    jz .elseif_cmd_rmema
+    jz .elseif_cmd_shmemup
     call wmemb_command
+
+    jmp .endif
+.elseif_cmd_shmemup:
+    lea esi, prompt_args
+    push esi
+    lea esi, cmd_shmemup_str
+    push esi
+    call streq
+    or al, al
+    jz .elseif_cmd_shmemdown
+    call shmemup_command
+
+    jmp .endif
+.elseif_cmd_shmemdown:
+    lea esi, prompt_args
+    push esi
+    lea esi, cmd_shmemdown_str
+    push esi
+    call streq
+    or al, al
+    jz .elseif_cmd_rmema
+    call shmemdown_command
 
     jmp .endif
 

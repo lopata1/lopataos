@@ -15,6 +15,7 @@ wmema_command:
 
     mov dword [ebp-4], eax
     mov dword [ebp-8], 0
+    mov dword [ebp-16], 0
 
 .loop:
     mov ecx, [ebp-8]
